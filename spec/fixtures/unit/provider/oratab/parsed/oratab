@@ -1,0 +1,10 @@
+# some comments to
+# explain what this file is used for
+# parsed should ignore these comments an the next line
+
+TEST:/app/oracle/db/11.2/db_1:N # line added by Agent
+PROD:/app/oracle/db/11.2/db_2:Y
+#OLDPROD:/app/oracle/db/11.2/db_3:N # line added by Agent
+
+
+DR:/app/oracle/db/11.2/db_4:N#i am still # an inline comment
