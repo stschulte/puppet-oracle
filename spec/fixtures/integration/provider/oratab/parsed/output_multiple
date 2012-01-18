@@ -1,0 +1,17 @@
+# just a comment
+# next line is a blank line
+
+
+# FOO:BAR:Y
+
+DB_INSYNC:/u01/app/oracle/product/10.1.0/db_1:Y
+DB_SYNC_HOME:/new/home:Y # ignore # me
+
+
+DB_SYNC_ATBOOT:/u01/app/oracle/product/10.1.0/db_1:Y
+DB_SYNC_DESCRIPTION:/u01/app/oracle/product/10.1.0/db_1:N # new desc
+
+# just a random comment
+
+DB_DELETE_DESCRIPTION:/u01/app/oracle/product/10.1.0/db_1:N
+DB_CREATE:/u01/app/oracle/product/10.1.0/db_2:N # added by puppet
