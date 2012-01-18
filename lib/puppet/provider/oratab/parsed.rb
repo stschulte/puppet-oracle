@@ -27,7 +27,7 @@ Puppet::Type.type(:oratab).provide(:parsed, :parent => Puppet::Provider::ParsedF
     },
     :to_line    => proc { |h|
       str = "#{h[:name]}:#{h[:home]}:#{h[:atboot]}"
-      if h[:description] and h[:description] != :absent
+      if description = h[:description] and description != :absent and !description.empty?
         str += " # #{description}"
       end
       str
