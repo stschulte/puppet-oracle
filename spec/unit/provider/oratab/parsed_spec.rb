@@ -8,26 +8,28 @@ describe Puppet::Type.type(:oratab).provider(:parsed) do
     described_class.stubs(:suitable?).returns true
     described_class.stubs(:default_target).returns my_fixture('oratab')
     Puppet::Type.type(:oratab).stubs(:defaultprovider).returns described_class
-    @resource = Puppet::Type.type(:oratab).new(
+  end
+
+  let :provider do
+    described_class.new(
       :name        => 'TEST01',
       :ensure      => :present,
       :home        => '/u01/app/oracle/product/9.2.0.1.0',
       :atboot      => :yes,
-      :description => 'managed by puppet'
+      :description => 'managed by puppet',
     )
-    @provider = described_class.new(@resource)
   end
 
   [:destroy, :create, :exists?].each do |method|
     it "should respond to #{method}" do
-      @provider.should respond_to method
+      provider.should respond_to method
     end
   end
 
   [:home, :atboot, :description].each do |property|
     it "should have getter and setter for property #{property}" do
-      @provider.should respond_to property
-      @provider.should respond_to "#{property}=".intern
+      provider.should respond_to property
+      provider.should respond_to "#{property}=".intern
     end
   end
 
