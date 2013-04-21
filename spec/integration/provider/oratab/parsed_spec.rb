@@ -4,13 +4,13 @@ require 'spec_helper'
 require 'puppet/file_bucket/dipper'
 
 describe Puppet::Type.type(:oratab).provider(:parsed), '(integration)' do
-  include PuppetSpec::Files
+  include PuppetlabsSpec::Files
 
   before :each do
     described_class.stubs(:suitable?).returns true
     Puppet::Type.type(:oratab).stubs(:defaultprovider).returns described_class
 
-    @fake_oratab = tmpfile('oratab')
+    @fake_oratab = tmpfilename('oratab')
     FileUtils.cp(my_fixture('input'), @fake_oratab)
     described_class.stubs(:default_target).returns @fake_oratab
 
