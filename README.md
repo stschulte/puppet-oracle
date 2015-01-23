@@ -1,6 +1,8 @@
 Puppet Oracle Module
 ====================
 
+[![Build Status](https://travis-ci.org/stschulte/puppet-oracle.png?branch=master)](https://travis-ci.org/stschulte/puppet-oracle)
+
 This repository aims to ease the configuration of Oracle
 Databases with custom types and providers
 
