@@ -5,19 +5,19 @@ require 'spec_helper'
 describe Puppet::Type.type(:oratab) do
 
   it "should have :name as its keyattribute" do
-    described_class.key_attributes.should == [:name]
+    expect(described_class.key_attributes).to eq([:name])
   end
 
   describe "when validating attributes" do
     [:name, :provider].each do |param|
       it "should have a #{param} parameter" do
-        described_class.attrtype(param).should == :param
+        expect(described_class.attrtype(param)).to eq(:param)
       end
     end
 
     [:ensure, :home, :atboot, :description, :target].each do |property|
       it "should have a #{property} property" do
-        described_class.attrtype(property).should == :property
+        expect(described_class.attrtype(property)).to eq(:property)
       end
     end
   end
@@ -82,10 +82,10 @@ describe Puppet::Type.type(:oratab) do
         expect { described_class.new(:name => 'TEST01E', :atboot => :N) }.to_not raise_error
       end
       it "should alias Y to yes" do
-        described_class.new(:name => 'TEST01E', :atboot => :Y)[:atboot].should == :yes
+        expect(described_class.new(:name => 'TEST01E', :atboot => :Y)[:atboot]).to eq(:yes)
       end
       it "should alias N to no" do
-        described_class.new(:name => 'TEST01E', :atboot => :N)[:atboot].should == :no
+        expect(described_class.new(:name => 'TEST01E', :atboot => :N)[:atboot]).to eq(:no)
       end
       it "should not support other values" do
         expect { described_class.new(:name => 'TEST01E', :atboot => :yess) }.to raise_error(Puppet::Error, /Invalid value/)
