@@ -1,0 +1,22 @@
+{
+  "name": "stschulte-oracle",
+  "version": "1.0.0",
+  "author": "stschulte",
+  "summary": "Manage the oratab through puppet",
+  "license": "Apache-2.0",
+  "source": "https://github.com/stschulte/puppet-oracle.git",
+  "project_page": "https://github.com/stschulte/puppet-oracle",
+  "issues_url": "https://github.com/stschulte/puppet-oracle/issues",
+  "dependencies": [ ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [ "6.0" ]
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [ "5.10", "5.11" ]
+    }
+  ],
+  "tags": ["oracle", "oratab"]
+}
