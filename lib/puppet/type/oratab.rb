@@ -50,8 +50,6 @@ module Puppet
       defaultto do
         if @resource.class.defaultprovider.ancestors.include?(Puppet::Provider::ParsedFile)
           @resource.class.defaultprovider.default_target
-        else
-          nil
         end
       end
     end
