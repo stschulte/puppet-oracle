@@ -2,6 +2,8 @@ Puppet Oracle Module
 ====================
 
 [![Build Status](https://travis-ci.org/stschulte/puppet-oracle.png?branch=master)](https://travis-ci.org/stschulte/puppet-oracle)
+[![Coverage Status](https://coveralls.io/repos/stschulte/puppet-oracle/badge.svg)](https://coveralls.io/r/stschulte/puppet-oracle)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/stschulte/oracle.svg)](https://forge.puppetlabs.com/stschulte/oracle)
 
 This repository aims to ease the configuration of Oracle
 Databases with custom types and providers
