@@ -5,19 +5,22 @@ require 'spec_helper'
 describe Puppet::Type.type(:oratab).provider(:parsed) do
 
   before :each do
-    described_class.stubs(:suitable?).returns true
-    described_class.stubs(:default_target).returns my_fixture('oratab')
-    Puppet::Type.type(:oratab).stubs(:defaultprovider).returns described_class
+    allow(Puppet::Type.type(:oratab)).to receive(:defaultprovider).and_return(described_class)
+    allow(described_class).to receive(:default_target).and_return(my_fixture('oratab'))
+  end
+
+  let :resource do
+    Puppet::Type.type(:oratab).new(
+      :name => 'TEST01',
+      :ensure => :present,
+      :home => '/u01/app/oracle/product/9.2.0.1.0',
+      :atboot => :yes,
+      :description => 'managed by puppet'
+    )
   end
 
   let :provider do
-    described_class.new(
-      :name        => 'TEST01',
-      :ensure      => :present,
-      :home        => '/u01/app/oracle/product/9.2.0.1.0',
-      :atboot      => :yes,
-      :description => 'managed by puppet'
-    )
+    described_class.new(resource)
   end
 
   [:destroy, :create, :exists?].each do |method|

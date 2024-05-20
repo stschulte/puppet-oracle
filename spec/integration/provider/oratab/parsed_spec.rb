@@ -7,9 +7,9 @@ describe Puppet::Type.type(:oratab).provider(:parsed), '(integration)' do
   include PuppetlabsSpec::Files
 
   before :each do
-    described_class.stubs(:suitable?).returns true
-    described_class.stubs(:default_target).returns fake_oratab
-    Puppet::Type.type(:oratab).stubs(:defaultprovider).returns described_class
+    allow(described_class).to receive(:suitable?).and_return(true)
+    allow(described_class).to receive(:default_target).and_return(fake_oratab)
+    allow(Puppet::Type.type(:oratab)).to receive(:defaultprovider).and_return(described_class)
   end
 
   let :fake_oratab do
@@ -100,11 +100,11 @@ describe Puppet::Type.type(:oratab).provider(:parsed), '(integration)' do
   end
 
   def run_in_catalog(*resources)
-    Puppet::FileBucket::Dipper.any_instance.stubs(:backup) # Don't backup to filebucket
+    allow_any_instance_of(Puppet::FileBucket::Dipper).to receive(:backup)
     catalog = Puppet::Resource::Catalog.new
     catalog.host_config = false
     resources.each do |resource|
-      resource.expects(:err).never
+      expect(resource).not_to receive(:err)
       catalog.add_resource(resource)
     end
     catalog.apply
@@ -113,7 +113,7 @@ describe Puppet::Type.type(:oratab).provider(:parsed), '(integration)' do
   def check_content_against(fixture)
     content = File.read(fake_oratab).lines.map{|l| l.chomp}.reject{|l| l=~ /^\s*#|^\s*$/}.sort.join("\n")
     expected_content = File.read(my_fixture(fixture)).lines.map{|l| l.chomp}.reject{|l| l=~ /^\s*#|^\s*$/}.sort.join("\n")
-    content.should == expected_content
+    expect(content).to eq(expected_content)
   end
 
   describe "when managing one resource" do
