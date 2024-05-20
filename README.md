@@ -65,5 +65,4 @@ You can now generate documentation and run tests
 ```
 bundle exec rake syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop
 bundle exec rake spec
-
 ```
