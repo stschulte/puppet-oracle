@@ -1,24 +1,21 @@
-Puppet Oracle Module
-====================
+# Puppet Oracle Module
 
-[![Build Status](https://travis-ci.org/stschulte/puppet-oracle.png?branch=master)](https://travis-ci.org/stschulte/puppet-oracle)
+[![Build Status](https://github.com/stschulte/puppet-oracle/actions/workflows/main.yml/badge.svg)](https://github.com/stschulte/puppet-oracle/actions/workflows/main.yml)
 [![Coverage Status](https://coveralls.io/repos/stschulte/puppet-oracle/badge.svg)](https://coveralls.io/r/stschulte/puppet-oracle)
-[![Puppet Forge](https://img.shields.io/puppetforge/v/stschulte/oracle.svg)](https://forge.puppetlabs.com/stschulte/oracle)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/stschulte/oracle.svg)](https://forge.puppet.com/stschulte/oracle)
 
 This repository aims to ease the configuration of Oracle
 Databases with custom types and providers
 
-New facts
----------
+## New facts
+
 (currently none)
 
-New functions
--------------
+## New functions
+
 (currently none)
 
-New custom types
-----------------
-
+## New custom types
 
 ### oratab
 
@@ -54,3 +51,19 @@ will lead to
 If you do not specifiy the description property, puppet will not touch the current inline comment.
 This might interest you because newer versions of oracle always update the comment as
 `line added by agent` on each instance stop and start.
+
+## Running tests
+
+Before running tests ensure you have all dependencies installed
+
+```
+bundle install
+```
+
+You can now generate documentation and run tests
+
+```
+bundle exec rake syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop
+bundle exec rake spec
+
+```

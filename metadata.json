@@ -7,16 +7,19 @@
   "source": "https://github.com/stschulte/puppet-oracle.git",
   "project_page": "https://github.com/stschulte/puppet-oracle",
   "issues_url": "https://github.com/stschulte/puppet-oracle/issues",
-  "dependencies": [ ],
+  "dependencies": [],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "6.0" ]
+      "operatingsystemrelease": ["6.0", "7.0", "8.0"]
     },
     {
       "operatingsystem": "Solaris",
-      "operatingsystemrelease": [ "5.10", "5.11" ]
+      "operatingsystemrelease": ["5.10", "5.11", "11"]
     }
   ],
-  "tags": ["oracle", "oratab"]
+  "tags": ["oracle", "oratab"],
+  "pdk-version": "3.1.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates#3.1.0",
+  "template-ref": "tags/3.0.1.3-0-gfbf353c"
 }
